@@ -5,7 +5,7 @@ spring:
   application:
     name: api-gateway
   config:
-    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}
+    import: configserver:${CONFIG_SERVER_URL:http://localhost:8888}
   cloud:
     gateway:
       discovery:
