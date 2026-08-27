@@ -14,59 +14,59 @@ spring:
           lower-case-service-id: true
       routes:
         - id: user-service-auth
-          uri: lb://USER-SERVICE
+          uri: http://localhost:8081
           predicates:
             - Path=/api/v1/auth/**
         - id: user-service-users
-          uri: lb://USER-SERVICE
+          uri: http://localhost:8081
           predicates:
             - Path=/api/v1/users/**
           filters:
             - AuthenticationFilter
         - id: employee-service-employees
-          uri: lb://EMPLOYEE-SERVICE
+          uri: http://localhost:8082
           predicates:
             - Path=/api/v1/employees/**
           filters:
             - AuthenticationFilter
         - id: employee-service-departments
-          uri: lb://EMPLOYEE-SERVICE
+          uri: http://localhost:8082
           predicates:
             - Path=/api/v1/departments/**
           filters:
             - AuthenticationFilter
         - id: employee-service-positions
-          uri: lb://EMPLOYEE-SERVICE
+          uri: http://localhost:8082
           predicates:
             - Path=/api/v1/positions/**
           filters:
             - AuthenticationFilter
         - id: employee-service-attendance
-          uri: lb://EMPLOYEE-SERVICE
+          uri: http://localhost:8082
           predicates:
             - Path=/api/v1/attendance/**
           filters:
             - AuthenticationFilter
         - id: employee-service-leaves
-          uri: lb://EMPLOYEE-SERVICE
+          uri: http://localhost:8082
           predicates:
             - Path=/api/v1/leaves/**
           filters:
             - AuthenticationFilter
         - id: employee-service-salaries
-          uri: lb://EMPLOYEE-SERVICE
+          uri: http://localhost:8082
           predicates:
             - Path=/api/v1/salaries/**
           filters:
             - AuthenticationFilter
         - id: employee-service-dashboard
-          uri: lb://EMPLOYEE-SERVICE
+          uri: http://localhost:8082
           predicates:
             - Path=/api/v1/dashboard/**
           filters:
             - AuthenticationFilter
         - id: document-service-docs
-          uri: lb://DOCUMENT-SERVICE
+          uri: http://localhost:8083
           predicates:
             - Path=/api/v1/documents/**
           filters:
@@ -75,6 +75,7 @@ spring:
         cors-configurations:
           '[/**]':
             allowedOrigins:
+              - "https://smarthr-frontend-967905708839.asia-southeast1.run.app"
               - "http://localhost:5173"
               - "http://localhost:3000"
               - "*"
